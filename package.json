@@ -8,7 +8,7 @@
     "lint": "npx eslint ./"
   },
   "author": "Ashley Chekhov",
-  "license": "",
+  "license": "GPL-3.0",
   "devDependencies": {
     "eslint": "^9.15.0",
     "jest": "^29.7.0"
