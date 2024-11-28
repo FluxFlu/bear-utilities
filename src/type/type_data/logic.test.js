@@ -1,6 +1,6 @@
 const { typeCheck } = require("../match/check");
 const { Natural, Range } = require("./number_types");
-const { Or, And } = require("./logic");
+const { Or, And, Not } = require("./logic");
 
 test("Or", () => {
     const type = Or(Natural, String);
@@ -11,6 +11,17 @@ test("Or", () => {
     expect(typeCheck(2.4, type)).toBe(false);
     expect(typeCheck(Infinity, type)).toBe(false);
     expect(typeCheck(undefined, type)).toBe(false);
+});
+
+test("Not", () => {
+    const type = Not(Or(Natural, String));
+
+    expect(typeCheck(0, type)).toBe(false);
+    expect(typeCheck("Test", type)).toBe(false);
+
+    expect(typeCheck(2.4, type)).toBe(true);
+    expect(typeCheck(Infinity, type)).toBe(true);
+    expect(typeCheck(undefined, type)).toBe(true);
 });
 
 test("And", () => {
