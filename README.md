@@ -10,11 +10,10 @@
 
 <div align="center">
 
-![Static Badge](https://img.shields.io/badge/Version-0.0.0-green)
+![Static Badge](https://img.shields.io/badge/Version-0.0.2-green)
 ![Static Badge](https://img.shields.io/badge/License-GPL--3.0-blue)
 
-<!-- ![Picture of a cute bear](./bear.png) -->
-<img src="bear.png" style="height: 11em"></img>
+<img src="bear.png" alt="Picture of a cute bear" style="height: 11em"></img>
 </div>
 
 
