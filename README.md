@@ -14,7 +14,7 @@
 ![Static Badge](https://img.shields.io/badge/License-GPL--3.0-blue)
 
 <!-- ![Picture of a cute bear](./bear.png) -->
-<img src="./bear.png" style="height: 12em"></img>
+<img src="./bear.png" style="height: 11em"></img>
 </div>
 
 
