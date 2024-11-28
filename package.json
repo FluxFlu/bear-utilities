@@ -1,0 +1,16 @@
+{
+  "name": "bear-utilities",
+  "version": "1.0.0",
+  "description": "A library containing an assortment of features that facilitate and enhance the JavaScript language.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "npx eslint ./"
+  },
+  "author": "Ashley Chekhov",
+  "license": "",
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "jest": "^29.7.0"
+  }
+}
