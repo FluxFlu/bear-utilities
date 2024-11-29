@@ -1,6 +1,6 @@
 {
   "name": "bear-utilities",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library containing an assortment of features that facilitate and enhance the JavaScript language.",
   "main": "src/index.js",
 	"repository": "fluxflu/bear-utilities",
@@ -14,6 +14,11 @@
     "eslint": "^9.15.0",
     "jest": "^29.7.0"
   },
+  "files": [
+    "./src",
+    "./LICENSE.txt",
+    "./README.md"
+  ],
 	"keywords": [
 		"utilities",
 		"types",
