@@ -1,6 +1,6 @@
 {
   "name": "bear-utilities",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A library containing an assortment of features that facilitate and enhance the JavaScript language.",
   "main": "src/index.js",
 	"repository": "fluxflu/bear-utilities",
