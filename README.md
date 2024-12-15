@@ -10,7 +10,7 @@
 
 <div align="center">
 
-![Static Badge](https://img.shields.io/badge/Version-0.0.5-green)
+![Static Badge](https://img.shields.io/badge/Version-0.0.6-green)
 ![Static Badge](https://img.shields.io/badge/License-GPL--3.0-blue)
 
 <img src="bear.png" alt="Picture of a cute bear" style="height: 11em"></img>

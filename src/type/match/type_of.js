@@ -4,6 +4,9 @@ const { reduceTypeList } = require("./type_of/reduce_list");
 function typeOf(value) {
     switch (typeof value) {
         case "object":
+            if (!value) {
+                return Object;
+            }
             if (value.constructor !== Object) {
                 switch (value.constructor) {
                     case Array:
