@@ -47,6 +47,10 @@ function typeCheck(value, expectedType) {
         return value instanceof expectedType || typeof value === strType;
     }
 
+    if (!expectedType) {
+        internalError("Invalid type [%s] passed to `typeCheck`.", expectedType);
+    }
+
     const customBehavior = getCustomBehavior(expectedType);
     if (customBehavior) {
         return customBehavior(value, expectedType);
