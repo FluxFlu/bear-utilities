@@ -1,10 +1,14 @@
 const { typeError } = require("../../../errors");
+const { internalError } = require("../../../errors/internal_error");
 
 const customBehavior = new Map();
 const customFormatting = new Map();
 
 function getPrototypeChain(obj) {
     const chain = [];
+    if (!obj) {
+        internalError("Invalid type object [%O].", obj);
+    }
     if (obj.constructor) {
         obj = obj.constructor;
     }

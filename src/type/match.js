@@ -7,7 +7,7 @@ function typeMatch(value, type) {
     const isSame = typeCheck(value, type);
 
     if (!isSame) {
-        typeError(value, formatType(type), formatType(typeOf(value)));
+        typeError(value, formatType(type), formatType(typeOf(value, type)));
     }
 
     return value;

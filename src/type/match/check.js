@@ -1,6 +1,7 @@
 const { internalError } = require("../../errors/internal_error");
 const { Type } = require("../type");
 const { getCustomBehavior } = require("./check/custom_behavior");
+const { validType } = require("./valid_type");
 
 function objMatch(value, expectedType) {
     if (!(value instanceof Object)) {
@@ -20,7 +21,7 @@ function arrayMatch(value, expectedType) {
     }
     
     if (expectedType.length > 1) {
-        internalError("Arrays used in typeMatch may not be longer than one value. Passed [%O].", expectedType);
+        // Not possible due to `validType` check.
     } else if (expectedType.length === 0) {
         return value.length === 0;
     } else {
@@ -47,32 +48,28 @@ function typeCheck(value, expectedType) {
         return value instanceof expectedType || typeof value === strType;
     }
 
-    if (!expectedType) {
+    if (!expectedType || !validType(expectedType)) {
         internalError("Invalid type [%s] passed to `typeCheck`.", expectedType);
+    }
+
+    // This code could go inside `case "object":`, but we put it earlier because it's more relevant and needs to be faster.
+    if (expectedType instanceof Type) {
+        return expectedType.check(value);
     }
 
     const customBehavior = getCustomBehavior(expectedType);
     if (customBehavior) {
         return customBehavior(value, expectedType);
     }
-
-    if (expectedType instanceof Type) {
-        return expectedType.check(value);
-    }
     switch (typeof expectedType) {
         case "object":
-            if (expectedType === null && value === null) {
-                return true;
-            }
             if (expectedType.constructor !== Object) {
                 switch (expectedType.constructor) {
                     case Array:
                         return arrayMatch(value, expectedType);
                     default:
-                        // If the expected object has a non-array constructor, we throw an error.
-                        // This is likely unintended behavior if it occurs - Nullable there's some reason for it?
-                        internalError("Not allowed to use instantiated object as expectedType parameter for typeCheck. Passed [%O].", expectedType);
                         return;
+                        // Not possible due to `validType` check.
                 }
             } else {
                 return objMatch(value, expectedType);
@@ -89,7 +86,8 @@ function typeCheck(value, expectedType) {
             
             return out;
         default:
-            internalError("Invalid right-hand of typeChecking. Passed value [%O] which does not work as a type.", expectedType);
+            return;
+            // Not possible due to `validType` check.
     }
 }
 
